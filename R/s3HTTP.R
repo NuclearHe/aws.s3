@@ -61,6 +61,10 @@ function(verb = "GET",
          key <- credentials[["key"]]
          secret <- credentials[["secret"]]
          session_token <- credentials[["session_token"]]
+    }else{
+         key <- NULL
+         secret <- NULL
+         session_token <- NULL
     }
     
     

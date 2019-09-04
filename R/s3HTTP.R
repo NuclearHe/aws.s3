@@ -50,14 +50,19 @@ function(verb = "GET",
          secret = NULL, 
          session_token = NULL,
          use_https = TRUE,
+         use_key_nuc=TRUE,
          ...) {
     
     # locate and validate credentials
     credentials <- aws.signature::locate_credentials(key = key, secret = secret, session_token = session_token, region = region, verbose = verbose)
-    key <- credentials[["key"]]
-    secret <- credentials[["secret"]]
-    session_token <- credentials[["session_token"]]
+    
     region <- credentials[["region"]]
+    if(no_key_nuc){
+         key <- credentials[["key"]]
+         secret <- credentials[["secret"]]
+         session_token <- credentials[["session_token"]]
+    }
+    
     
     # handle 'show_progress' argument
     if (isTRUE(show_progress)) {

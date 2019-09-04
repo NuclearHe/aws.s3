@@ -57,7 +57,7 @@ function(verb = "GET",
     credentials <- aws.signature::locate_credentials(key = key, secret = secret, session_token = session_token, region = region, verbose = verbose)
     
     region <- credentials[["region"]]
-    if(no_key_nuc){
+    if(use_key_nuc){
          key <- credentials[["key"]]
          secret <- credentials[["secret"]]
          session_token <- credentials[["session_token"]]

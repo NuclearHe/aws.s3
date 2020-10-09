@@ -100,6 +100,7 @@ function(verb = "GET",
     
     url_style <- match.arg(url_style)
     url <- setup_s3_url(bucketname, region, path, accelerate, url_style = url_style, base_url = base_url, verbose = verbose, use_https = use_https)
+    print(url)
     p <- httr::parse_url(url)
     action <- if (p$path == "") "/" else paste0("/", p$path)
     hostname <- paste(p$hostname, p$port, sep=ifelse(length(p$port), ":", ""))

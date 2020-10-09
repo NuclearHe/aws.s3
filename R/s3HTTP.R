@@ -159,6 +159,8 @@ function(verb = "GET",
         } else {
             r <- httr::GET(url, H, query = query, show_progress, ...)
         }
+    print(url);print(query);print(H)
+             
     } else if (verb == "connection") {
         # support for a streaming GET connection
         stream_handle <- curl::new_handle()
